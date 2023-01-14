@@ -15,7 +15,7 @@ setup(
     include_package_data=True,
     install_requires=[
         "django>=3.2,<4.1",
-        "django-oauth-toolkit==2.1.0",
+        "django-oauth-toolkit @ file:///home/julian/PycharmProjects/django-oauth-toolkit#egg=django-oauth-toolkit==2.2.0",
         "django-cors-middleware>=1.5.0",
         "django-allauth>=0.48.0",
         "django-fakeinline>=0.1.1",

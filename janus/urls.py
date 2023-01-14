@@ -2,7 +2,7 @@ from django.conf.urls import include
 from django.urls import path, re_path
 from django.utils.module_loading import import_string
 from oauth2_provider.views import TokenView, RevokeTokenView, IntrospectTokenView, UserInfoView, \
-    ConnectDiscoveryInfoView, JwksInfoView
+    ConnectDiscoveryInfoView, JwksInfoView, RPInitiatedLogoutView
 
 from janus import views
 from janus.oauth2.views import AuthorizationView
@@ -27,6 +27,7 @@ if JANUS_OIDC_ENABLED:
         re_path(r'^userinfo/', UserInfoView.as_view(), name='user-info'),
         re_path(r"^\.well-known/openid-configuration", ConnectDiscoveryInfoView.as_view(), name="oidc-connect-discovery-info"),
         re_path(r"^\.well-known/jwks.json$", JwksInfoView.as_view(), name="jwks-info"),
+        re_path(r"^remote-logout/", RPInitiatedLogoutView.as_view(), name="rp-initiated-logout")
     ]
 
 urlpatterns = [
